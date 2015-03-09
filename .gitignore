@@ -5,6 +5,7 @@ tests/_output/*
 /storage/logs/*
 
 .env
+.env.production
 readme_laravel.md
 
 /bootstrap/compiled.php
