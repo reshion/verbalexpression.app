@@ -1,0 +1,16 @@
+/vendor
+/node_modules
+/.idea
+tests/_output/*
+/storage/logs/*
+
+.env
+.env.testing
+readme_laravel.md
+
+/bootstrap/compiled.php
+/storage/framework/compiled.php
+composer.phar
+composer.lock
+
+Thumbs.db

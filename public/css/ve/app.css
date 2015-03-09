@@ -1,0 +1,115 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding: 70px 0 60px;
+}
+a {
+  transition: color 0.3s;
+}
+a:hover {
+  transition: color 0.3s;
+}
+footer.navbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 24px;
+  min-height: 24px;
+}
+footer.navbar .footer {
+  padding-top: 5px;
+  color: #98978b;
+}
+footer.navbar .footer p {
+  margin: 0;
+}
+footer.navbar .footer a:hover {
+  text-decoration: none;
+  color: #1AE8BF;
+}
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.navbar.navbar-fixed-top {
+  border-top: 5px solid #18bc9c;
+}
+.top-buffer {
+  margin-top: 10px;
+}
+.page-header {
+  margin: 20px 0 20px;
+}
+.row .keyvalue .form-group {
+  margin-bottom: 6px;
+}
+.form-control:focus {
+  border-color: rgba(26, 36, 47, 0.5);
+}
+.page-header {
+  border-bottom: 1px solid #18bc9c;
+}
+.docs .sidebar > ul {
+  list-style: none;
+}
+.docs .sidebar > ul > li {
+  font-size: 18px;
+  padding: 0 0 10px;
+  margin: 25px 0 0;
+}
+.docs .sidebar > ul > li > ul {
+  list-style: none;
+  border-top: 1px dashed rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 14px;
+}
+.docs .sidebar > ul > li > ul > li::before {
+  content: "# ";
+  margin-right: .25em;
+  opacity: .3;
+}
+.docs a:hover {
+  text-decoration: none;
+  color: #1AE8BF;
+}
+.docs article,
+.docs .article {
+  font-size: 15px;
+}
+.docs article blockquote,
+.docs .article blockquote {
+  font-size: 16.75px;
+}
+.docs article h2,
+.docs .article h2 {
+  border-bottom: 1px solid #18bc9c;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.docs article h3,
+.docs .article h3 {
+  font-size: 22px;
+}
+.docs article h3::before,
+.docs .article h3::before {
+  content: "# ";
+  margin-right: .25em;
+  color: #18bc9c;
+  opacity: .6;
+}
