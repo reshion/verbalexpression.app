@@ -1,11 +1,10 @@
 <?php
 
 use App\VerbalExpression\Tester;
-use Codeception\TestCase\Test;
 
 class TesterUnitCest {
 
-    public function matchIsTrueWithMatchingValueAndExpression(UnitTester $I)
+    public function matchIsTrueForValidUrlPatternAndValues(UnitTester $I)
     {
         $I->amGoingTo('pass url expression and url to match');
         $I->expect('true');
@@ -21,7 +20,7 @@ class TesterUnitCest {
         $I->assertTrue($tester->match($expression, "https://foobar.com"));
     }
 
-    public function matchIsFalseWithNonMatchingValueAndExpression(UnitTester $I)
+    public function matchIsFalseForValidUrlPatternAndInvalidValues(UnitTester $I)
     {
         $I->amGoingTo('pass url expression and non-url to match');
         $I->expect('false');
@@ -37,6 +36,30 @@ class TesterUnitCest {
         $I->assertFalse($tester->match($expression, "https://foo bar.com"));
         $I->assertFalse($tester->match($expression, ""));
         $I->assertFalse($tester->match($expression, null));
+    }
+
+    public function matchForValidPhonePattern(UnitTester $I)
+    {
+
+        $I->amGoingTo("pass phone pattern and phone values");
+
+        $tester = new Tester();
+
+        $expression = '/^(?:\+)?((?: )?[0-9]+)+$/m';
+
+        $I->assertTrue($tester->match($expression, '+49 1511234568'));
+        $I->assertTrue($tester->match($expression, '+491511234568'));
+        $I->assertTrue($tester->match($expression, '0 1511234568'));
+        $I->assertTrue($tester->match($expression, '01511234568'));
+        $I->assertTrue($tester->match($expression, '008 1511234568'));
+        $I->assertTrue($tester->match($expression, '0081511234568'));
+        $I->assertTrue($tester->match($expression, '0 151 1234 568'));
+        $I->assertTrue($tester->match($expression, '0151 123 4568'));
+
+        $I->assertFalse($tester->match($expression, '(+49) 1511234568'));
+        $I->assertFalse($tester->match($expression, '0 - 1511234568'));
+        $I->assertFalse($tester->match($expression, '() 1511234568'));
+        $I->assertFalse($tester->match($expression, '(+) 1511234568'));
     }
 
     public function matchThrowsExceptionWhenExpressionEmpty(UnitTester $I)

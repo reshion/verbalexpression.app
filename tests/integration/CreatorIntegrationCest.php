@@ -3,8 +3,7 @@ use App\VerbalExpression\Creator;
 use App\VerbalExpression\Storage\Keyword\Keyword;
 use App\VerbalExpression\VerbalExpression;
 
-class CreatorIntegrationCest
-{
+class CreatorIntegrationCest {
     public function createsValidUrlPattern(IntegrationTester $I)
     {
         $I->amGoingTo('create a valid url pattern');
@@ -61,6 +60,26 @@ class CreatorIntegrationCest
         $I->assertEquals('m', $actual['modifiers']);
     }
 
+    public function createsValidPhonePattern(IntegrationTester $I)
+    {
+        $I->amGoingTo("create a valid phone pattern and check it");
+
+        $creator = new Creator(new VerbalExpression(), new Keyword());
+
+        $actual = $creator
+            ->add('startOfLine', "")
+            ->add('maybe', '+')
+            ->add('startOfGroup', "")
+            ->add('maybe', " ")
+            ->add('range', '0;9')
+            ->add('atLeastOnce', "")
+            ->add('endOfGroup', "")
+            ->add('atLeastOnce', "")
+            ->add('endOfLine', "")
+            ->create();
+
+        $I->assertEquals('/^(?:\+)?((?: )?[0-9]+)+$/m', $actual['combined']);
+    }
 
     /**
      * @expectedException App\VerbalExpression\Exception\InvalidArgumentException
@@ -69,7 +88,8 @@ class CreatorIntegrationCest
     {
         $creator = new Creator(new VerbalExpression(), new Keyword());
 
-        $I->seeExceptionThrown('App\VerbalExpression\Exception\InvalidArgumentException', function() use ($I, $creator){
+        $I->seeExceptionThrown('App\VerbalExpression\Exception\InvalidArgumentException', function () use ($I, $creator)
+        {
             $creator->add("range", "");
         });
     }

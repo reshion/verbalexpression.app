@@ -39,8 +39,8 @@
             {{--</form>--}}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{url('/documentation')}}">Documentation</a></li>
-                <li><a href="http://github.com/erickubenka" target="_blank">GitHub</a></li>
                 <li><a href="{{url('/credits')}}">Credits</a></li>
+                <li><a href="http://github.com/erickubenka/verbalexpression.app" target="_blank">GitHub</a></li>
                 {{--<li class="dropdown">--}}
                 {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>--}}
                 {{--<ul class="dropdown-menu" role="menu">--}}
