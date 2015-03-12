@@ -20,9 +20,9 @@ install: travis_retry composer install --no-interaction --prefer-source
 #  - sleep 3
 
 script:
-  - vendor/bin/codecept run
-#  - vendor/bin/codecept run unit
-#  - vendor/bin/codecept run integration
-#  - vendor/bin/codecept run functional
-#  - vendor/bin/codecept run api
+#  - vendor/bin/codecept run
+  - vendor/bin/codecept run unit
+  - vendor/bin/codecept run integration
+  - vendor/bin/codecept run functional
+  - vendor/bin/codecept run api
 #  - vendor/bin/codecept run acceptance
