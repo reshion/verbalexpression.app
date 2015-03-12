@@ -15,7 +15,7 @@ sudo: false
 install: travis_retry composer install --no-interaction --prefer-source
 
 #before_script:
-#  - phantomjs --webdriver=4444
+#  - phantomjs --webdriver=4444 &
 #  - php artisan serve &
 #  - sleep 3
 
