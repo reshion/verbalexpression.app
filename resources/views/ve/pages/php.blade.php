@@ -27,7 +27,7 @@
                         <div class="row keyvalue" data-ng-repeat="keyValue in creator.pairs">
                             <div class="form-group input-group-sm col-lg-4 col-md-4 col-xs-3 col-sm-3">
                                 <label for="key<%$index%>" data-ng-show="$index%5 == 0">Keyword</label>
-                                <select class="form-control" data-ng-model="::creator.pairs[$index].keyword"
+                                <select class="form-control select-key" data-ng-model="::creator.pairs[$index].keyword"
                                         id="key<%$index%>"
                                         data-ng-init="::creator.pairs[$index].keyword = creator.pairs[$index].keyword || creator.keywords[0].key"
                                         data-ng-options="keyword.key as keyword.key for keyword in creator.keywords">
@@ -37,13 +37,13 @@
                                 <label for="value<%$index%>" data-ng-show="$index%5 == 0">Value</label>
                                 <input type="text" id="value<%$index%>" data-ng-trim="false"
                                        data-ng-model="::creator.pairs[$index].value"
-                                       class="form-control" placeholder="value"/>
+                                       class="form-control input-value" placeholder="value"/>
                             </div>
                             <div class="form-group input-group-sm col-lg-2 col-md-2 col-xs-2 col-sm-3">
                                 <label for="addkey" data-ng-show="$index%5 == 0">&nbsp;</label>
                                 <div class="btn-group btn-group-sm btn-block" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-danger col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.removePair($index)" id="btnRemove<%$index%>">-</button>
-                                    <button type="button" class="btn btn-success col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.addPair('', '', $index+1)" id="btnAdd<%$index%>">+</button>
+                                    <button type="button" class="btn btn-danger btn-remove-pair col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.removePair($index)" id="btnRemove<%$index%>">-</button>
+                                    <button type="button" class="btn btn-success btn-add-pair col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.addPair('', '', $index+1)" id="btnAdd<%$index%>">+</button>
                                 </div>
                             </div>
                         </div>
