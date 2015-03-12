@@ -14,4 +14,15 @@ sudo: false
 
 install: travis_retry composer install --no-interaction --prefer-source
 
-script: vendor/bin/codecept run
+#before_script:
+#  - phantomjs --webdriver=4444
+#  - php artisan serve &
+#  - sleep 3
+
+script:
+  - vendor/bin/codecept run
+#  - vendor/bin/codecept run unit
+#  - vendor/bin/codecept run integration
+#  - vendor/bin/codecept run functional
+#  - vendor/bin/codecept run api
+#  - vendor/bin/codecept run acceptance
