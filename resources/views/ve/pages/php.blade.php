@@ -1,8 +1,11 @@
 @extends('ve.master')
 
 @section('scripts_before')
-    <script src="https://code.angularjs.org/1.3.9/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.9/angular-route.min.js"></script>
+    {{-- Scripts are locally stored due to phantomjs / ghostdriver cross domain loading--}}
+    {{--<script src="https://code.angularjs.org/1.3.9/angular.min.js"></script>--}}
+    {{--<script src="https://code.angularjs.org/1.3.9/angular-route.min.js"></script>--}}
+    <script src="{{asset('/js/libs/angular-1.3.9/angular.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/libs/angular-1.3.9/angular-route.min.js')}}"></script>
     <script src="{{asset('/js/ve/app.js')}}"></script>
     <script src="{{asset('/js/ve/keyword/keywordService.js')}}"></script>
     <script src="{{asset('/js/ve/creator/creatorService.js')}}"></script>
@@ -56,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" data-ng-if="creator.error">
+                <div class="row creator-error" data-ng-if="creator.error">
                     <div class="col-md-12 col-sm12 col-lg-12 col-xs-12">
                         <div class="alert"
                              data-ng-class="{
@@ -72,10 +75,10 @@
                 <div class="row top-buffer">
                     <div class="col-md-3 col-sm-3 col-lg-3 col-xs-6">
                         <input type="reset" class="btn btn-warning btn-block" value="Reset"
-                               data-ng-click="creator.reset()"/>
+                               data-ng-click="creator.reset()" id="btn-reset"/>
                     </div>
                     <div class="col-md-4 col-sm-4 col-lg-4 col-xs-6 col-md-offset-5 col-sm-offset-5 col-lg-offset-5">
-                        <input type="submit" class="btn btn-primary btn-block" value="Generate"/>
+                        <input type="submit" id='btn-generate' class="btn btn-primary btn-block" value="Generate"/>
                     </div>
 
                 </div>

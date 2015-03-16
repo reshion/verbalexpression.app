@@ -42,22 +42,19 @@ final class Creator implements CreatorInterface {
      */
     public function addArray($pairs)
     {
-
-        if (!is_array($pairs))
+        if ( ! is_array($pairs))
         {
             throw new ValidationException("", ['pairs' => ["The pairs field must be type of array."]]);
         }
 
         foreach ($pairs as $pair)
         {
-
-            if (!$this->hasNecessaryKeys($pair))
+            if ( ! $this->hasNecessaryKeys($pair))
             {
                 throw new ValidationException("All provided pairs values have to contain keys 'keyword' and 'value'!");
             }
 
             $this->add($pair['keyword'], $pair['value']);
-
         }
 
         return $this;
@@ -141,7 +138,8 @@ final class Creator implements CreatorInterface {
             {
                 call_user_func_array(array($this->regex, $key), array($value));
             }
-        } catch (InvalidArgumentException $e)
+        }
+        catch (InvalidArgumentException $e)
         {
             $message = sprintf("Arguments for keyword %s are invalid: %s", $key, $e->getMessage());
             throw new \App\VerbalExpression\Exception\InvalidArgumentException($message);

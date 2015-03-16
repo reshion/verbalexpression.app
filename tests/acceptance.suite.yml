@@ -1,11 +1,11 @@
 class_name: AcceptanceTester
 modules:
-    enabled: [AcceptanceHelper, WebDriver, Laravel5]
+    enabled: [AcceptanceHelper, WebDriver, Asserts]
     config:
       WebDriver:
         url: 'http://localhost:8000'
         browser: phantomjs
         capabilities:
           webStorageEnabled: true
-      Laravel5:
-        environment_file: .env.testing
+#      Laravel5:
+#        environment_file: .env.testing
