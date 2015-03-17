@@ -10,7 +10,10 @@ matrix:
     allow_failures:
         - php: 7.0
 
-sudo: false
+sudo: true
+
+before_install:
+  - sudo apt-get install eog -y
 
 install: travis_retry composer install --no-interaction --prefer-source
 
@@ -20,8 +23,9 @@ before_script:
   - sleep 5
 
 script:
-  - vendor/bin/codecept run --skip acceptance
-#  - vendor/bin/codecept run
+#  - vendor/bin/codecept run --skip acceptance
+  - vendor/bin/codecept run
 
 after_failure:
   - cat storage/logs/*
+  - eog tests/_output/*.png
