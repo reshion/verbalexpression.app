@@ -13,7 +13,7 @@ matrix:
 sudo: false
 
 before_install:
-  - sudo apt-get install eog
+  - sudo apt-get install eog -y
 
 install: travis_retry composer install --no-interaction --prefer-source
 
