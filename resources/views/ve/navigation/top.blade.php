@@ -10,14 +10,14 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
-                Verbal Expression - Regex made easy
+                Verbal Expression - Beta
             </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <p class="navbar-text">Beta</p>
+                {{--<p class="navbar-text">Beta</p>--}}
                 {{--<li class="dropdown">--}}
                 {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>--}}
                 {{--<ul class="dropdown-menu" role="menu">--}}

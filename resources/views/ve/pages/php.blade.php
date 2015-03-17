@@ -36,13 +36,13 @@
                                         data-ng-options="keyword.key as keyword.key for keyword in creator.keywords">
                                 </select>
                             </div>
-                            <div class="form-group input-group-sm col-lg-6 col-md-6 col-xs-7 col-sm-6">
+                            <div class="form-group input-group-sm col-lg-6 col-md-6 col-xs-6 col-sm-6">
                                 <label for="value<%$index%>" data-ng-show="$index%5 == 0">Value</label>
                                 <input type="text" id="value<%$index%>" data-ng-trim="false"
                                        data-ng-model="::creator.pairs[$index].value"
                                        class="form-control input-value" placeholder="value"/>
                             </div>
-                            <div class="form-group input-group-sm col-lg-2 col-md-2 col-xs-2 col-sm-3">
+                            <div class="form-group input-group-sm col-lg-2 col-md-2 col-xs-3 col-sm-3">
                                 <label for="addkey" data-ng-show="$index%5 == 0">&nbsp;</label>
                                 <div class="btn-group btn-group-sm btn-block" role="group" aria-label="...">
                                     <button type="button" class="btn btn-danger btn-remove-pair col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.removePair($index)" id="btnRemove<%$index%>">-</button>
