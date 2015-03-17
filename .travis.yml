@@ -17,7 +17,7 @@ install: travis_retry composer install --no-interaction --prefer-source
 before_script:
   - php artisan serve &
   - phantomjs --webdriver=4444 &
-  - sleep 5t
+  - sleep 5
 
 script:
 #  - vendor/bin/codecept run --skip acceptance
