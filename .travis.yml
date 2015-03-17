@@ -12,9 +12,6 @@ matrix:
 
 sudo: true
 
-before_install:
-  - sudo apt-get install eog -y
-
 install: travis_retry composer install --no-interaction --prefer-source
 
 before_script:
@@ -28,4 +25,3 @@ script:
 
 after_failure:
   - cat storage/logs/*
-  - eog tests/_output/*.png
