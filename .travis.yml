@@ -24,5 +24,4 @@ script:
   - vendor/bin/codecept run
 
 after_failure:
-  - cat storage/logs/laravel.log
-  - cat tests/_output/*
+  - cat storage/logs/*
