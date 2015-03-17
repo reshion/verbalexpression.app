@@ -22,3 +22,7 @@ before_script:
 script:
 #  - vendor/bin/codecept run --skip acceptance
   - vendor/bin/codecept run
+
+after_failure:
+  - cat storage/logs/laravel.log
+  - cat tests/_output/*
