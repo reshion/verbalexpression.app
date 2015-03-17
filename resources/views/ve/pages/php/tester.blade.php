@@ -10,14 +10,14 @@
                            placeholder="Your test string..."
                            data-ng-model="tester.matchValue">
             <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary" value="Test" data-ng-disabled="creator.regex.length==0">
+                <input type="submit" id="btn-test-expression" class="btn btn-primary" value="Test" data-ng-disabled="creator.regex.length==0">
             </span>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="row" data-ng-if="tester.matchMessage">
+    <div class="row tester-message" data-ng-if="tester.matchMessage">
         <div class="col-md-12 col-sm12 col-lg-12 col-xs-12">
             <div class="alert"
                  data-ng-class="{

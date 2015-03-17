@@ -108,6 +108,20 @@ class GeneratorPage {
     }
 
     /**
+     * Clicks Generate and Wait
+     */
+    public function clickGenerateAndWait()
+    {
+        $I = $this->acceptanceTester;
+
+        $I->click(GeneratorPage::$buttonGenerate);
+        $I->waitForElementChange(GeneratorPage::$inputExpression, function (\WebDriverElement $element)
+        {
+            return strlen($element->getAttribute("value")) > 0;
+        }, 10);
+    }
+
+    /**
      * Get select keyword selector
      *
      * @param $index

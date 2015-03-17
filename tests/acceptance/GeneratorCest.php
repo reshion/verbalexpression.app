@@ -36,24 +36,33 @@ class GeneratorCest {
         $I->seeNumberOfElements(GeneratorPage::$buttonRemovePair, 0);
     }
 
+    public function generateWithoutPair(AcceptanceTester $I)
+    {
+        $I->click(GeneratorPage::buttonRemovePair(1));
+        $I->click(GeneratorPage::$buttonGenerate);
+
+        $I->waitForElementVisible(GeneratorPage::$divCreatorError, 5);
+        $I->see('The validation for provided input failed');
+    }
+
     public function resetForm(AcceptanceTester $I)
     {
         $I->click(GeneratorPage::buttonAddPair(1));
         $I->fillField(GeneratorPage::inputValue(1), 'foo');
+        GeneratorPage::of($I)->clickGenerateAndWait();
         $I->click(GeneratorPage::$buttonReset);
 
         $I->seeNumberOfElements(GeneratorPage::$selectKeyword, 1);
         $I->seeElement(GeneratorPage::inputValue(1), ['value' => '']);
+        $I->seeElement(GeneratorPage::$inputExpression, ['value' => '']);
     }
 
     public function generateUrlRegex(AcceptanceTester $I)
     {
-        $I->click(GeneratorPage::buttonAddPair(1));
-        $I->click(GeneratorPage::buttonAddPair(2));
-        $I->click(GeneratorPage::buttonAddPair(3));
-        $I->click(GeneratorPage::buttonAddPair(4));
-        $I->click(GeneratorPage::buttonAddPair(5));
-        $I->click(GeneratorPage::buttonAddPair(6));
+        for ($i = 1; $i <= 6; $i++)
+        {
+            $I->click(GeneratorPage::buttonAddPair($i));
+        }
 
         $I->seeNumberOfElements(GeneratorPage::$selectKeyword, 7);
         $I->seeNumberOfElements(GeneratorPage::$inputValue, 7);
@@ -65,24 +74,11 @@ class GeneratorCest {
             ->fillPair(4, "then", "://")
             ->fillPair(5, "maybe", "www.")
             ->fillPair(6, "anythingBut", " ")
-            ->fillPair(7, "endOfLine", "");
-
-        $I->click(GeneratorPage::$buttonGenerate);
-
-        $I->waitForElementChange(GeneratorPage::$inputExpression, function(\WebDriverElement $element){
-            return strlen($element->getAttribute("value")) > 0;
-        }, 10);
+            ->fillPair(7, "endOfLine", "")
+            ->clickGenerateAndWait();
 
         $actual = $I->grabValueFrom(GeneratorPage::$inputExpression);
         $I->assertEquals('/^(?:http)(?:s)?(?:\:\/\/)(?:www\.)?(?:[^ ]*)$/m', $actual);
     }
 
-    public function generateWithoutPair(AcceptanceTester $I)
-    {
-        $I->click(GeneratorPage::buttonRemovePair(1));
-        $I->click(GeneratorPage::$buttonGenerate);
-
-        $I->waitForElementVisible(GeneratorPage::$divCreatorError, 5);
-        $I->see('The validation for provided input failed');
-    }
 }
