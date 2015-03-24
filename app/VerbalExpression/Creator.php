@@ -115,6 +115,12 @@ final class Creator implements CreatorInterface {
             return explode(";", $value);
         }
 
+        // No input allowed
+        if ($keyword['accepted'] === "none")
+        {
+            return "";
+        }
+
         return $value;
     }
 

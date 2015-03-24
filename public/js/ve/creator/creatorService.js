@@ -9,7 +9,7 @@ angular.module('veApp.creatorService', [])
 
         Creator.get = function () {
 
-            return $http.post('api/v1/creator/create', {pairs: Creator.pairs})
+            return $http.post('api/v1/creator/create', {pairs: Creator.preparePairs()})
                 .success(function (data) {
                     Creator.expression = data;
                     Creator.error = '';
@@ -30,7 +30,7 @@ angular.module('veApp.creatorService', [])
         Creator.remove = function (index) {
 
             Creator.pairs.splice(index, 1);
-
+            return Creator.pairs;
         };
 
         Creator.reset = function () {
@@ -40,6 +40,17 @@ angular.module('veApp.creatorService', [])
             Creator.pairs = [];
             Creator.add('', '', 0);
 
+        };
+
+        Creator.preparePairs = function () {
+            var pairs = [];
+
+            for (var i = 0; i < Creator.pairs.length; i++) {
+                var entry = Creator.pairs[i];
+                pairs.push({keyword: entry.keyword.key, value: entry.value});
+            }
+
+            return pairs;
         };
 
         return Creator;

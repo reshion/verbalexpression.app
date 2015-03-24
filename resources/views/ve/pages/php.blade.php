@@ -6,6 +6,7 @@
     {{--<script src="https://code.angularjs.org/1.3.9/angular-route.min.js"></script>--}}
     <script src="{{asset('/js/libs/angular-1.3.9/angular.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('/js/libs/angular-1.3.9/angular-route.min.js')}}"></script>
+    <script src="{{asset('/js/libs/ui-bootstrap-tpls-0.12.1.min.js')}}"></script>
     <script src="{{asset('/js/ve/app.js')}}"></script>
     <script src="{{asset('/js/ve/keyword/keywordService.js')}}"></script>
     <script src="{{asset('/js/ve/creator/creatorService.js')}}"></script>
@@ -27,26 +28,43 @@
             <form class="form" data-ng-submit="creator.getRegex()">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                        <div class="row keyvalue" data-ng-repeat="keyValue in creator.pairs">
-                            <div class="form-group input-group-sm col-lg-4 col-md-4 col-xs-3 col-sm-3">
+                        <div class="row row-key-value" data-ng-repeat="keyValue in creator.pairs">
+                            <div class="form-group col-lg-4 col-md-4 col-xs-3 col-sm-3">
                                 <label for="key<%$index%>" data-ng-show="$index%5 == 0">Keyword</label>
-                                <select class="form-control select-key" data-ng-model="::creator.pairs[$index].keyword"
+                                <select class="form-control input-sm select-key"
+                                        data-ng-model="::creator.pairs[$index].keyword"
                                         id="key<%$index%>"
-                                        data-ng-init="::creator.pairs[$index].keyword = creator.pairs[$index].keyword || creator.keywords[0].key"
-                                        data-ng-options="keyword.key as keyword.key for keyword in creator.keywords">
+                                        data-ng-init="::creator.pairs[$index].keyword = creator.pairs[$index].keyword || creator.keywords[0]"
+                                        data-ng-options="keyword as keyword.key for keyword in creator.keywords">
                                 </select>
                             </div>
-                            <div class="form-group input-group-sm col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                            <div class="form-group col-lg-6 col-md-6 col-xs-6 col-sm-6">
                                 <label for="value<%$index%>" data-ng-show="$index%5 == 0">Value</label>
-                                <input type="text" id="value<%$index%>" data-ng-trim="false"
-                                       data-ng-model="::creator.pairs[$index].value"
-                                       class="form-control input-value" placeholder="value"/>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-popover-trigger="click"
+                                          data-popover-placement="top" data-popover-append-to-body
+                                          data-popover="<%creator.pairs[$index].keyword.info%>"
+                                          data-popover-title="<%creator.pairs[$index].keyword.key%> :: <%creator.pairs[$index].keyword.accepted%>">
+                                        <i class="fa fa-info"></i>
+                                    </span>
+                                    <input type="text" id="value<%$index%>" data-ng-trim="false"
+                                           data-ng-model="::creator.pairs[$index].value"
+                                           class="form-control input-value input-sm" placeholder="value"/>
+                                </div>
                             </div>
-                            <div class="form-group input-group-sm col-lg-2 col-md-2 col-xs-3 col-sm-3">
+                            <div class="form-group col-lg-2 col-md-2 col-xs-3 col-sm-3">
                                 <label for="addkey" data-ng-show="$index%5 == 0">&nbsp;</label>
+
                                 <div class="btn-group btn-group-sm btn-block" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-danger btn-remove-pair col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.removePair($index)" id="btnRemove<%$index%>">-</button>
-                                    <button type="button" class="btn btn-success btn-add-pair col-gl-6 col-md-6 col-sm-6 col-xs-6" data-ng-click="creator.addPair('', '', $index+1)" id="btnAdd<%$index%>">+</button>
+                                    <button type="button"
+                                            class="btn btn-danger btn-remove-pair col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                                            data-ng-click="creator.removePair($index)" id="btnRemove<%$index%>">-
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-success btn-add-pair col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                                            data-ng-click="creator.addPair('', '', $index+1)" id="btnAdd<%$index%>">+
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +126,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p>
                         Test your expression at
-                        <a target="_blank" href="https://regex101.com/?regex=<%creator.regex.expression%>&options=<%creator.regex.modifiers%>">regex101.com</a>
+                        <a target="_blank"
+                           href="https://regex101.com/?regex=<%creator.regex.expression%>&options=<%creator.regex.modifiers%>">regex101.com</a>
                         .
                     </p>
                 </div>

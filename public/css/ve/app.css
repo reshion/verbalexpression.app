@@ -53,8 +53,11 @@ footer.navbar .footer a:hover {
 .page-header {
   margin: 20px 0 20px;
 }
-.row .keyvalue .form-group {
+.row.row-key-value .form-group {
   margin-bottom: 6px;
+}
+.row.row-key-value .form-group .input-group-addon {
+  padding: 0px 15px;
 }
 .form-control:focus {
   border-color: rgba(26, 36, 47, 0.5);

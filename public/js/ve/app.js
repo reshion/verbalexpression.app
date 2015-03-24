@@ -5,7 +5,8 @@ var rmeApp = angular.module('veApp',
         'veApp.creatorService',
         'veApp.testerService',
         'veApp.creatorCtrl',
-        'veApp.testerCtrl'
+        'veApp.testerCtrl',
+        'ui.bootstrap'
     ], function ($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
