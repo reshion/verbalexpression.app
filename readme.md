@@ -4,6 +4,8 @@
 
 This app is still in development status. No official release currently.
 
+The current dev-version runs under http://ve.code-fever.de
+
 **Based on:**
 
 * Laravel

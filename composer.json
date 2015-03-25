@@ -20,7 +20,8 @@
     "mockery/mockery": "0.9.*@dev",
     "codeception/codeception": "2.0.*@dev",
     "codeception/mockery-module": "*",
-    "flow/jsonpath": "dev-master"
+    "flow/jsonpath": "dev-master",
+    "laravel/envoy": "~1.0"
   },
   "autoload": {
     "classmap": [
