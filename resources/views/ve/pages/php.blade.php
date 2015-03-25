@@ -42,7 +42,7 @@
                                 <label for="value<%$index%>" data-ng-show="$index%5 == 0">Value</label>
 
                                 <div class="input-group">
-                                    <span class="input-group-addon" data-popover-trigger="click"
+                                    <span class="input-group-addon" data-popover-trigger="mouseenter"
                                           data-popover-placement="top" data-popover-append-to-body
                                           data-popover="<%creator.pairs[$index].keyword.info%>"
                                           data-popover-title="<%creator.pairs[$index].keyword.key%> :: <%creator.pairs[$index].keyword.accepted%>">
