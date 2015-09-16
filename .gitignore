@@ -15,3 +15,5 @@ composer.phar
 composer.lock
 
 Thumbs.db
+
+tests/_support/_generated
