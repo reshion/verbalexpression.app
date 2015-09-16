@@ -115,7 +115,7 @@ class GeneratorPage {
         $I = $this->acceptanceTester;
 
         $I->click(GeneratorPage::$buttonGenerate);
-        $I->waitForElementChange(GeneratorPage::$inputExpression, function (\WebDriverElement $element)
+        $I->waitForElementChange(GeneratorPage::$inputExpression, function ($element)
         {
             return strlen($element->getAttribute("value")) > 0;
         }, 10);

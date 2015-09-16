@@ -2,6 +2,8 @@
 /node_modules
 /.idea
 tests/_output/*
+tests/_support/*
+
 /storage/logs/*
 
 .env

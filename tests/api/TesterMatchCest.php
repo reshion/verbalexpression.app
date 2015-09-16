@@ -2,14 +2,7 @@
 
 class TesterMatchCest {
 
-    private $endpoint = '/api/v1/tester/match';
-
-    public function _before(ApiTester $I)
-    {
-        $session = $I->grabService('session');
-        $session->put('_token', 'testing');
-        $I->haveHttpHeader('X-CSRF-TOKEN', csrf_token());
-    }
+    private $endpoint = '/tester/match';
 
     public function returnsTrueWhenValid(ApiTester $I)
     {

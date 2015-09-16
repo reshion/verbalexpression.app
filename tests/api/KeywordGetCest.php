@@ -2,7 +2,7 @@
 
 class KeywordGetCest
 {
-    private $endpoint = '/api/v1/keywords';
+    private $endpoint = '/keywords';
 
     public function returnKeywords(ApiTester $I)
     {

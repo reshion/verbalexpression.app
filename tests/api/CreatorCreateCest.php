@@ -2,14 +2,7 @@
 
 class CreatorCreateCest
 {
-    private $endpoint = '/api/v1/creator/create';
-
-    public function _before(ApiTester $I)
-    {
-        $session = $I->grabService('session');
-        $session->put('_token', 'testing');
-        $I->haveHttpHeader('X-CSRF-TOKEN', csrf_token());
-    }
+    private $endpoint = '/creator/create';
 
     public function createsUrlPattern(ApiTester $I)
     {
@@ -30,6 +23,7 @@ class CreatorCreateCest
             'expression' => '^(?:http)(?:s)?(?:\:\/\/)(?:www\.)?(?:[^ ]*)$',
             'modifiers' => 'm'
         ];
+
 
         $I->sendPOST($this->endpoint, json_encode($parameters));
 
