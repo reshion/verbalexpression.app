@@ -21,6 +21,7 @@ before_script:
 
 script:
 #  - vendor/bin/codecept run --skip acceptance
+  - vendor/bin/codecept build
   - vendor/bin/codecept run
 
 after_failure:
