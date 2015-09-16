@@ -1,6 +1,4 @@
 <?php
-use \AcceptanceTester;
-use \GeneratorPage;
 
 class GeneratorCest {
 
