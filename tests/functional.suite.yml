@@ -1,7 +1,7 @@
 class_name: FunctionalTester
 modules:
     enabled:
-    - FunctionalHelper
-    - Laravel5:
-      environment_file: .env.testing
-    - Asserts
+      - FunctionalHelper
+      - Laravel5:
+          environment_file: .env.testing
+      - Asserts
